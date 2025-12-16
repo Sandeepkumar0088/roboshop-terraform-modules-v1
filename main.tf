@@ -12,7 +12,7 @@ module "ec2" {
 
 module "dns" {
     source                  = "./dns"
-    pri_ip                  = network.ec2.instance.private_ip
+    pri_ip                  = module.ec2.instance.private_ip
     zone_id                 = var.zone_id
     component               = var.component
 }
