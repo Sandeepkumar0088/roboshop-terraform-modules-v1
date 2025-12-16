@@ -3,7 +3,7 @@ module "network" {
 }
 
 module "ec2" {
-    for_each                var.component
+    for_each                = var.component
     source                  = "./ec2"
     ami                     = var.ami
     instance_type           = var.instance_type
@@ -12,7 +12,7 @@ module "ec2" {
 }
 
 module "dns" {
-    for_each                var.component
+    for_each                = var.component
     source                  = "./dns"
     pri_ip                  = module.ec2.instance[each.key].private_ip
     zone_id                 = var.zone_id
@@ -21,7 +21,7 @@ module "dns" {
 
 module "ansibble" {
     depends_on              = [ module.dns ]
-    for_each                var.component
+    for_each                = var.component
     source = "./ansible"
     pri_ip                  = module.ec2.instance[each.key].private_ip
     component               = each.key
