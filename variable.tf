@@ -5,3 +5,11 @@ variable "ami"{
 variable "instance_type"{
     default = "t3.micro"
 }
+
+variable "zone_id" {
+    default = "Z09354891N46GVLJSDZH0"
+}
+
+variable "component" {
+    default = "test"
+}

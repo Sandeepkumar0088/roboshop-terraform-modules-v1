@@ -4,6 +4,6 @@ resource "aws_instance" "main" {
     vpc_security_group_ids = [var.vpc_security_group_ids]
 
     tags = {
-        Name = "test"
+        Name = "${component}"
     }
 }
