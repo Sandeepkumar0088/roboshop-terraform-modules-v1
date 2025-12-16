@@ -7,4 +7,3 @@ resource "aws_instance" "main" {
         Name = "test"
     }
 }
-
