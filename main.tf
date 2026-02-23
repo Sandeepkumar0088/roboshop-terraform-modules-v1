@@ -19,7 +19,7 @@ module "dns" {
     component               = each.key
 }
 
-module "ansibble" {
+module "ansible" {
     depends_on              = [ module.dns ]
     for_each                = var.component
     source = "./ansible"
